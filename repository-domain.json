@@ -1,0 +1,26 @@
+{
+  "repository_name": "NEURO-EVIDENCE-BENCH",
+  "owner_group": "SC-NEUROMORPHIC-COMPUTING-SYSTEMS",
+  "lifecycle": "local_scaffold",
+  "evidence_maturity": "architecture_only",
+  "capabilities": [],
+  "claims": [],
+  "qualified_owned_schema_ids": [],
+  "planned_owned_schema_ids": [
+    "neuro_evidence_bench.plan.v1",
+    "neuro_evidence_bench.result.v1"
+  ],
+  "validation_profile": {
+    "id": "gotm.enterprise-repository-tier0.local-scaffold",
+    "revision": "2026-10-04",
+    "standard_sha256": "8421674a61444474447fad2f4d2bfc54dc5a1ea12ae988785e57dbcab385938c",
+    "profile_sha256": "f453a70eae008c41f8d26a1f495ec3636f64739bcedb9caac0bdf8774300905c"
+  },
+  "tooling_python": {
+    "design_baseline": "3.13",
+    "actual_version": "3.13.16",
+    "supported_range": ">=3.13.16,<3.14",
+    "development_lock_sha256": "9c4cdfb3fc455d0c04d4a0fcc40eb376b3572bf48db2bcf2e5893459951b6758"
+  },
+  "domain_runtime_dependencies": []
+}
