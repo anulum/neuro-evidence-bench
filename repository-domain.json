@@ -17,10 +17,10 @@
     "profile_sha256": "f453a70eae008c41f8d26a1f495ec3636f64739bcedb9caac0bdf8774300905c"
   },
   "tooling_python": {
-    "design_baseline": "3.13",
-    "actual_version": "3.13.16",
-    "supported_range": ">=3.13.16,<3.14",
-    "development_lock_sha256": "9c4cdfb3fc455d0c04d4a0fcc40eb376b3572bf48db2bcf2e5893459951b6758"
+    "design_baseline": "3.15",
+    "actual_version": "3.15.2",
+    "supported_range": ">=3.15.2,<3.16",
+    "development_lock_sha256": "b53f7a1a6943acecb3bcaa2a8cbada890aa6eee66baaeb9560bfd7df68181bbd"
   },
   "domain_runtime_dependencies": []
 }

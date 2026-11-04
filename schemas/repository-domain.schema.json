@@ -83,11 +83,11 @@
       ],
       "properties": {
         "design_baseline": {
-          "const": "3.13"
+          "const": "3.15"
         },
         "actual_version": {
           "type": "string",
-          "pattern": "^3\\.13\\.(0|[1-9][0-9]*)$"
+          "pattern": "^3\\.15\\.(0|[1-9][0-9]*)$"
         },
         "supported_range": {
           "type": "string",

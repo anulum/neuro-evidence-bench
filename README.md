@@ -16,10 +16,10 @@ The local metadata explicitly records `local_scaffold`, `architecture_only`, emp
 
 ## Validate repository metadata
 
-Use Python 3.13.16 with the hash-locked development dependencies:
+Use Python 3.15.2 with the hash-locked development dependencies:
 
 ```sh
-uv venv --python 3.13.16 .venv
+uv venv --python 3.15.2 .venv
 uv pip install --python .venv/bin/python --require-hashes --build-constraints requirements-dev.txt --default-index https://pypi.org/simple -r requirements-dev.txt
 make native-tools
 .venv/bin/python tools/check_repository_metadata.py --root . --json

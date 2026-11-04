@@ -112,7 +112,7 @@ def emit_report(report: Report) -> int:
     try:
         sys.stdout.write(report.encode())
         sys.stdout.flush()
-    except (OSError, UnicodeError):
+    except OSError, UnicodeError:
         sys.stdout = io.StringIO()
         return 3
     return report.exit_code

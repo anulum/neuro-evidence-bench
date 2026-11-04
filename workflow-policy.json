@@ -188,17 +188,17 @@
     }
   ],
   "workflow_sha256": {
-    "ci.yml": "1113a23a87f203a3fd7942dd045847f197b3bc1625b0c79611b6cac9cdce91ee",
-    "codeql.yml": "e391efd6181e81c4e42620fb17f22b52aac93eb123c58a5a7cd1af8d0722599f",
-    "docs.yml": "7c9b578c43c9914f67e376e0585b85d50832f21712ab06ce9abe56dce7eccbc2",
-    "pre-commit.yml": "f74aa0459218e426dded4cf896fb96d4fb5f1c1a09fba8ca9753df7d102c3459",
-    "quality.yml": "cc041103498bd166a8f5b7f7976e91dd7f19bf9c918bccaf43a8be19dde49d99",
-    "sbom.yml": "6df5a04c4e1b7a4df2d652046a1f8cd65c214f01a4c19c327217e671b4fc34fb",
-    "scorecard.yml": "92a9f20e00c3299e9f5c942675637a7bb6b9e76968d4b1e628e5df747c4b6f89",
-    "security-audit.yml": "7f0fe87f2c46b62cf7c53b9e14cb5e7ead8bcf1614a3b39d89c07ba9769ff5fe",
-    "tests.yml": "c28e7920bbc274b212fbd7f133dcecc70571c5626ee393ca411975fdd32e4805"
+    "ci.yml": "5b67df933a94bf9b52a610d6e434ff6628e80bd1e1b71c13cf49dcc3e0c30b03",
+    "codeql.yml": "ad96a98a612c50ffd9e6e5d98e6abbaa417ebd8d7e8224d6322645e89aa8f27f",
+    "docs.yml": "6c8530f2fc2e4776cbc14fa76a992da64964cb8267f88bbfc4ef4dcbcc9deda2",
+    "pre-commit.yml": "b8635f382693b1461c0ee93c9121f66f6d8118d52e275a58068802f60e9d5014",
+    "quality.yml": "efc7d3bbebc52db8e51a5f39a7e88c6aa20ee5dddf3aec441d7d3cdfbaa082bd",
+    "sbom.yml": "8b64e7b1db341244042f04834d62163a7bf817596f65453a7be27c09034e792e",
+    "scorecard.yml": "9c41341f18fce8358bc07f742874860c2f2e56e914fb918e8194a5201c0ffbb7",
+    "security-audit.yml": "cc2534c4b4226c905a259e4ef85d17c60c47e97a9c7039c2a3f9b9dc9a21c78c",
+    "tests.yml": "40594977bba8cb58e902899cefa6b7110635a6fe2a2c55195567d6d4b75f1184"
   },
-  "provenance_sha256": "38eb7f032a949083588a5d1181f29a56fc9436b6205bec3c0fd8274cc39b03c4",
+  "provenance_sha256": "3205fbc177d6ce276dc40c371e129cd06360f61da702c4b140d4f2f706a3d727",
   "category_members": {
     "quality": [
       "quality_main",

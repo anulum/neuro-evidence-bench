@@ -218,6 +218,33 @@ def test_strict_runtime_and_renderer_invariants(configuration: Path) -> None:
     assert codes >= {"dependency.runtime", "dependency.renderer", "dependency.hook_version"}
 
 
+@pytest.mark.parametrize(
+    ("key", "value"),
+    [("name", "material"), ("custom_dir", "../outside"), ("highlightjs", "true")],
+)
+def test_documentation_navigation_configuration_is_fixed(
+    configuration: Path, key: str, value: str
+) -> None:
+    """Reject navigation regressions, foreign templates and external executable loading.
+
+    Parameters
+    ----------
+    configuration : Path
+        Real independent authored configuration files.
+    key : str
+        Actual native theme setting under test.
+    value : str
+        Known invalid value for that setting.
+    """
+    docs = read_yaml(configuration, "mkdocs.yml")
+    theme = docs["theme"]
+    assert isinstance(theme, dict)
+    theme[key] = value
+    (configuration / "mkdocs.yml").write_text(json.dumps(docs))
+    findings = verify_configuration(configuration, {"pre-commit": "4.7.0"})
+    assert {item.code for item in findings} == {"dependency.renderer"}
+
+
 @pytest.mark.parametrize("fault", ["repo", "entries", "entry", "command", "population"])
 def test_native_hook_refusals(configuration: Path, fault: str) -> None:
     """Reject foreign sources, missing declarations, extra dependencies and command drift."""
@@ -251,3 +278,24 @@ def test_native_hook_refusals(configuration: Path, fault: str) -> None:
         assert problem.finding.code == expected
     else:
         assert expected in {item.code for item in findings}
+
+
+@pytest.mark.parametrize("mutation", ["table", "missing"])
+def test_api_documentation_preserves_reflow(configuration: Path, mutation: str) -> None:
+    """Refuse parameter layouts that lose the authored narrow-screen rendering.
+
+    Parameters
+    ----------
+    configuration : Path
+        Actual independent native renderer configuration.
+    mutation : str
+        Known invalid table layout or omitted list-layout requirement.
+    """
+    path = configuration / "mkdocs.yml"
+    original = path.read_text()
+    required = "            docstring_section_style: list\n"
+    assert required in original
+    replacement = "            docstring_section_style: table\n" if mutation == "table" else ""
+    path.write_text(original.replace(required, replacement))
+    findings = verify_configuration(configuration, {"pre-commit": "4.7.0"})
+    assert {item.code for item in findings} == {"dependency.renderer"}

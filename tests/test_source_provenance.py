@@ -149,3 +149,43 @@ def test_json_owner_records_match_canonical_commit_policy(
         )
     (source_repository / "input.json.license").write_text(sidecar)
     assert "json.sidecar" in {item.code for item in validate_provenance(source_repository).findings}
+
+
+@pytest.mark.parametrize("mutation", [None, "visible", "conflicting"])
+def test_actual_html_template_notice_through_cli(
+    source_repository: Path, mutation: str | None
+) -> None:
+    """Validate actual template notices and refuse visible or conflicting ownership.
+
+    Parameters
+    ----------
+    source_repository : Path
+        Actual independent Git repository containing the template input.
+    mutation : str or None
+        Known invalid notice alteration, or the real unchanged template.
+    """
+    text = (REPOSITORY / "docs-overrides/toc.html").read_text()
+    if mutation == "visible":
+        text = text.replace("<!--\n", "", 1).replace("-->\n", "", 1)
+    elif mutation == "conflicting":
+        text = text.replace("AGPL-3.0-or-later", "MIT", 1)
+    (source_repository / "toc.html").write_text(text)
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(REPOSITORY / "tools/check_source_provenance.py"),
+            "--root",
+            str(source_repository),
+            "--json",
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=10,
+    )
+    report = json.loads(result.stdout)
+    assert report["gate"] == "source_provenance"
+    assert result.returncode == (0 if mutation is None else 2), report
+    if mutation is not None:
+        assert report["reasons"][0]["code"] == "source.notice"
+        assert report["reasons"][0]["path"] == "toc.html"

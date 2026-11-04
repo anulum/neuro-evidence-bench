@@ -170,7 +170,7 @@ def inspect_markdown(root: Path, relative: str) -> list[Finding]:
                                 "Local reference names an absent rendered anchor.",
                             )
                         )
-            except (Refusal, UnicodeError, ValueError):
+            except Refusal, UnicodeError, ValueError:
                 findings.append(
                     Finding(
                         "docs.link",

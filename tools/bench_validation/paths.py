@@ -47,6 +47,8 @@ REQUIRED_PATHS = (
     "VALIDATION.md",
     "docs/ARCHITECTURE.md",
     "docs/THREAT_MODEL.md",
+    "docs-overrides/main.html",
+    "docs-overrides/toc.html",
     "docs/adr/0001-repository-boundary.md",
     "pyproject.toml",
     "requirements-dev.txt",

@@ -102,3 +102,28 @@ def test_required_regular_directory_and_valid_ignore(tmp_path: Path) -> None:
     report = validate_structure(tmp_path)
     assert "directory.required" not in {item.code for item in report.findings}
     assert "private.ignore" not in {item.code for item in report.findings}
+
+
+@pytest.mark.parametrize("missing", ["docs-overrides/toc.html", "docs-overrides/main.html"])
+def test_actual_source_refuses_missing_navigation_template(tmp_path: Path, missing: str) -> None:
+    """Require the actual navigation template instead of silently falling back upstream.
+
+    Parameters
+    ----------
+    tmp_path : Path
+        Real independent source copy with exactly the required template omitted.
+    missing : str
+        Required template whose omission must not enable an upstream fallback.
+    """
+    repository = Path(__file__).resolve().parents[1]
+    assert validate_structure(repository).exit_code == 0
+    init_repository(tmp_path)
+    for relative in maintained_paths(repository):
+        if relative == missing:
+            continue
+        target = tmp_path / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes((repository / relative).read_bytes())
+    report = validate_structure(tmp_path)
+    assert report.exit_code == 3
+    assert [(item.code, item.path) for item in report.findings] == [("file.unavailable", missing)]

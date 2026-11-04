@@ -21,13 +21,28 @@ REPOSITORY = Path(__file__).resolve().parents[1]
 
 
 def test_actual_record_shapes_and_custom_source_bindings() -> None:
-    """Read actual observations, retaining explicit custom licence source identities."""
+    """Read actual observations, retaining the upstream-only licence source."""
     source, records = read_provenance(REPOSITORY)
-    assert source["python_version"] == "3.13.16"
+    assert source["python_version"] == "3.15.2"
     assert {row["name"] for row in records} >= {"ruff", "uv", "mypy", "jsonschema"}
-    custom = [row for row in records if row["license_expression"].startswith("LicenseRef-")]
-    assert custom
-    assert all(row["license_evidence"] or row.get("license_source") for row in custom)
+    upstream = [row for row in records if row.get("license_source")]
+    assert {row["name"] for row in upstream} == {"packageurl-python"}
+    assert all(
+        row["license_expression"] == row["license_source"]["detected_spdx"] for row in upstream
+    )
+
+
+def test_custom_licence_retains_actual_installed_text(tmp_path: Path) -> None:
+    """Accept a custom identity bound to the actual installed licence record."""
+    source = json.loads((REPOSITORY / "dependency-provenance.json").read_text())
+    row = next(row for row in source["packages"] if row["license_evidence"])
+    expected = row["license_evidence"]
+    row["license_expression"] = "LicenseRef-installed-" + row["name"]
+    (tmp_path / "dependency-provenance.json").write_text(json.dumps(source))
+    _, records = read_provenance(tmp_path)
+    actual = next(record for record in records if record["name"] == row["name"])
+    assert actual["license_expression"] == row["license_expression"]
+    assert actual["license_evidence"] == expected
 
 
 @pytest.mark.parametrize("fault", ["shape", "duplicate", "canonical", "licence", "licence_source"])
@@ -47,10 +62,10 @@ def test_actual_record_refusals(tmp_path: Path, fault: str) -> None:
         source["packages"][0]["license_expression"] = "MIT AND ???"
         expected = "dependency.licence"
     else:
-        row = next(
-            row for row in source["packages"] if row["license_expression"].startswith("LicenseRef-")
-        )
+        row = source["packages"][0]
+        row["license_expression"] = "LicenseRef-installed-" + row["name"]
         row["license_evidence"] = []
+        row.pop("license_source", None)
         expected = "dependency.licence_source"
     (tmp_path / "dependency-provenance.json").write_text(json.dumps(source))
     with pytest.raises(Refusal) as caught:

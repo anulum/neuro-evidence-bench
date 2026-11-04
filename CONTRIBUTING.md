@@ -12,7 +12,7 @@ NEURO-EVIDENCE-BENCH — repository governance and provenance
 
 Discuss changes with the maintainer at protoscience@anulum.li. Supply the concrete use case, affected contract and an input that can be shared safely. Do not include credentials, private models or confidential training data in an issue or test.
 
-Use Python 3.13.16 and `uv` 0.13.4 to create an isolated `.venv`. Install only the complete hash-locked `requirements-dev.txt`; do not use pip installation, mutable tool upgrades or a different project's environment. Use a shared uv cache on the same filesystem with hardlink mode. A failed hardlink must be resolved before installation continues. Interpreter selection must identify the exact patch, rather than accept a changing default.
+Use Python 3.15.2 and `uv` 0.13.7 to create an isolated `.venv`. Install only the complete hash-locked `requirements-dev.txt`; do not use pip installation, mutable tool upgrades or a different project's environment. Use a shared uv cache on the same filesystem with hardlink mode. A failed hardlink must be resolved before installation continues. Interpreter selection must identify the exact patch, rather than accept a changing default.
 
 Run the native lint, formatter and strict typing commands in [VALIDATION](VALIDATION.md), then the dedicated real-surface tests for changed modules. Every public function has a NumPy-style docstring. Validators refuse missing dependencies, malformed inputs and incomplete outcomes. Do not weaken coverage, suppress a failure or replace a runtime boundary with a mock to obtain acceptance.
 

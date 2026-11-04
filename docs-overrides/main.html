@@ -1,0 +1,20 @@
+<!--
+SPDX-License-Identifier: AGPL-3.0-or-later
+Commercial license available
+© Concepts 1996–2026 Miroslav Šotek. All rights reserved.
+© Code 2020–2026 Miroslav Šotek. All rights reserved.
+ORCID: 0009-0009-3560-0851
+Contact: www.anulum.li | protoscience@anulum.li
+NEURO-EVIDENCE-BENCH — responsive branded documentation navigation
+-->
+{% extends "base.html" %}
+{% block site_name %}
+<a class="navbar-brand d-flex align-items-center gap-2" href="{{ nav.homepage.url|url }}" aria-label="{{ config.site_name }} (NEB)">
+  <img src="{{ 'assets/anulum_logo.png'|url }}" alt="ANULUM" height="24" style="height: 24px; width: auto">
+  <span class="d-none d-sm-inline">{{ config.site_name }}</span>
+  <span class="d-sm-none" aria-hidden="true">NEB</span>
+</a>
+{% endblock %}
+{% block site_nav %}
+<nav aria-label="Documentation navigation">{{ super() }}</nav>
+{% endblock %}

@@ -50,11 +50,27 @@ Run dedicated test modules for each changed implementation through pytest and co
 
 Source provenance checks actual maintained notices, exact JSON sidecars, legal text and licensed image identities. Workflow policy checks every declared job, trigger, read-only action, verified source pin and stable aggregate outcome. Dependency alignment reconciles the complete lock, actual installed producers, local hooks and native release payloads. Documentation executes strict native rendering and inspects actual generated HTML as well as source links.
 
+The coordinator declares main pushes, pull requests and input-free manual runs. Each route requires the same aggregate checks. Missing manual dispatch or unreviewed dispatch inputs fail the workflow policy gate.
+
+The Python 3.15.2 tooling environment builds PyYAML 6.0.3 from source and uses its Python parser. Its safe-loader round trip and the repository's actual YAML readers are checked separately from package installation. The complete lock retains mypy 1.20.2 with strict checking.
+
+## Documentation keyboard journeys
+
+Build the documentation with the documentation checker, then serve the generated site locally.
+Check desktop and narrow viewports using the keyboard: open the navigation menu with Enter,
+follow a documentation link, expand “On this page” with Space, follow a heading link and use
+search. Focus must stay visible, collapsed menus must not receive Tab focus, and page content
+must reflow without a horizontal page scrollbar. Inspect the browser's accessibility tree for
+named navigation, search, headings and controls. Retain actual journey results; rendering or
+HTML markers alone do not establish accessibility conformance.
+
+API parameter and return sections use lists so their text can reflow at narrow widths.
+
 ## Explicit native setup and resource bounds
 
 `make native-tools` explicitly downloads the exact release archives, verifies archive SHA-256, extracts only the named executable, verifies its payload SHA-256 and removes its temporary archive. Native tools remain under ignored `.tool-cache/native/`. Their expected sources, versions and licences are recorded in `native-tool-provenance.json`. Validators have no automatic installation or network fallback.
 
-The official Gitleaks executable reserves four GiB of virtual address space for its regular-expression runtime. A virtual-address limit below that reserve prevents startup; reserve physical memory separately. Linux user scopes can cap an owned verification job with `MemoryMax=768M`, `CPUQuota=100%` and `TasksMax=64`; `GOMEMLIMIT=512MiB` and `GOMAXPROCS=1` further constrain the Go runtime. This is a local resource profile, not physical-device or hostile operating-system qualification.
+The official Gitleaks executable reserves four GiB of virtual address space for its regular-expression runtime. A virtual-address limit below that reserve prevents startup; reserve physical memory separately. Derive CPU, resident-memory and worker budgets from the executing host's eligible resources, current availability, operating-system reserve and applicable policy. Record the actual enforced limits and terminal process outcome. A resource profile does not qualify a physical device or hostile operating system.
 
 ## Preflight and actual check scope
 

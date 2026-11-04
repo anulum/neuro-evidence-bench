@@ -108,11 +108,11 @@ def test_schema_cannot_choose_weaker_policy(repository: Path) -> None:
     ("changes", "exit_code", "codes"),
     [
         ({"supported_range": "CONFIDENTIAL_PAYLOAD"}, 4, ["python.range"]),
-        ({"supported_range": ">=3.14"}, 2, ["python.compatibility"]),
-        ({"actual_version": "3.13.0"}, 3, ["python.identity", "python.compatibility"]),
+        ({"supported_range": ">=3.16"}, 2, ["python.compatibility"]),
+        ({"actual_version": "3.15.0"}, 3, ["python.identity", "python.compatibility"]),
         ({"development_lock_sha256": "0" * 64}, 2, ["lock.identity"]),
         (
-            {"actual_version": "3.13.0", "development_lock_sha256": "0" * 64},
+            {"actual_version": "3.15.0", "development_lock_sha256": "0" * 64},
             3,
             ["python.identity", "python.compatibility", "lock.identity"],
         ),

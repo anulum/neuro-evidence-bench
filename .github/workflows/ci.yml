@@ -12,6 +12,7 @@ name: Repository validation
     branches:
     - main
   pull_request:
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -34,16 +35,16 @@ jobs:
         persist-credentials: 'false'
     - name: Prepare bounded working directories
       run: mkdir -p .tool-cache/tmp .tool-cache/uv
-    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
       with:
-        python-version: 3.13.16
-    - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
+        python-version: 3.15.2
+    - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
       with:
-        version: 0.13.4
-        checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
+        version: 0.13.7
+        checksum: c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83
         enable-cache: 'false'
     - name: Install exact development graph
-      run: 'uv venv --python 3.13.16 .venv
+      run: 'uv venv --python 3.15.2 .venv
 
         uv pip install --python .venv/bin/python --require-hashes --build-constraints requirements-dev.txt
         --default-index https://pypi.org/simple -r requirements-dev.txt
@@ -87,16 +88,16 @@ jobs:
         persist-credentials: 'false'
     - name: Prepare bounded working directories
       run: mkdir -p .tool-cache/tmp .tool-cache/uv
-    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
       with:
-        python-version: 3.13.16
-    - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
+        python-version: 3.15.2
+    - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
       with:
-        version: 0.13.4
-        checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
+        version: 0.13.7
+        checksum: c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83
         enable-cache: 'false'
     - name: Install exact development graph
-      run: 'uv venv --python 3.13.16 .venv
+      run: 'uv venv --python 3.15.2 .venv
 
         uv pip install --python .venv/bin/python --require-hashes --build-constraints requirements-dev.txt
         --default-index https://pypi.org/simple -r requirements-dev.txt
@@ -124,16 +125,16 @@ jobs:
         persist-credentials: 'false'
     - name: Prepare bounded working directories
       run: mkdir -p .tool-cache/tmp .tool-cache/uv
-    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
       with:
-        python-version: 3.13.16
-    - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
+        python-version: 3.15.2
+    - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
       with:
-        version: 0.13.4
-        checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
+        version: 0.13.7
+        checksum: c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83
         enable-cache: 'false'
     - name: Install exact development graph
-      run: 'uv venv --python 3.13.16 .venv
+      run: 'uv venv --python 3.15.2 .venv
 
         uv pip install --python .venv/bin/python --require-hashes --build-constraints requirements-dev.txt
         --default-index https://pypi.org/simple -r requirements-dev.txt
@@ -161,16 +162,16 @@ jobs:
         persist-credentials: 'false'
     - name: Prepare bounded working directories
       run: mkdir -p .tool-cache/tmp .tool-cache/uv
-    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
       with:
-        python-version: 3.13.16
-    - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
+        python-version: 3.15.2
+    - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
       with:
-        version: 0.13.4
-        checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
+        version: 0.13.7
+        checksum: c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83
         enable-cache: 'false'
     - name: Install exact development graph
-      run: 'uv venv --python 3.13.16 .venv
+      run: 'uv venv --python 3.15.2 .venv
 
         uv pip install --python .venv/bin/python --require-hashes --build-constraints requirements-dev.txt
         --default-index https://pypi.org/simple -r requirements-dev.txt
@@ -196,16 +197,16 @@ jobs:
         persist-credentials: 'false'
     - name: Prepare bounded working directories
       run: mkdir -p .tool-cache/tmp .tool-cache/uv
-    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
       with:
-        python-version: 3.13.16
-    - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
+        python-version: 3.15.2
+    - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
       with:
-        version: 0.13.4
-        checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
+        version: 0.13.7
+        checksum: c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83
         enable-cache: 'false'
     - name: Install exact development graph
-      run: 'uv venv --python 3.13.16 .venv
+      run: 'uv venv --python 3.15.2 .venv
 
         uv pip install --python .venv/bin/python --require-hashes --build-constraints requirements-dev.txt
         --default-index https://pypi.org/simple -r requirements-dev.txt
@@ -236,8 +237,8 @@ jobs:
         persist-credentials: 'false'
     - name: Retrieve the exact CodeQL analysis bundle
       env:
-        CODEQL_BUNDLE_URL: https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.27.2/codeql-bundle-linux64.tar.gz
-        CODEQL_BUNDLE_SHA256: f002864be6dd8d5d7bdb123aaf7291ec8e291012bd9f70b6d2362f730db52aeb
+        CODEQL_BUNDLE_URL: https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.27.4/codeql-bundle-linux64.tar.gz
+        CODEQL_BUNDLE_SHA256: 89ed56c8ec6bfccef6a0d2e7fe86da0469ca24b4db08b88016ec134b942c17a4
       run: 'curl --fail --location --silent --show-error --max-time 180 --output "$RUNNER_TEMP/codeql-bundle.tar.gz"
         "$CODEQL_BUNDLE_URL"
 
@@ -245,14 +246,14 @@ jobs:
         --status
 
         '
-    - uses: github/codeql-action/init@6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee
+    - uses: github/codeql-action/init@1fc58d04a4d4374f921bdac573c3811c240f9c26
       with:
         languages: python
         tools: ${{ runner.temp }}/codeql-bundle.tar.gz
         build-mode: none
         ram: '2048'
         threads: '1'
-    - uses: github/codeql-action/analyze@6f2ac81f5cd81fe351a197ba0b00d91d03cd2aee
+    - uses: github/codeql-action/analyze@1fc58d04a4d4374f921bdac573c3811c240f9c26
       with:
         upload: never
         upload-database: 'false'
@@ -273,16 +274,16 @@ jobs:
         persist-credentials: 'false'
     - name: Prepare bounded working directories
       run: mkdir -p .tool-cache/tmp .tool-cache/uv
-    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
       with:
-        python-version: 3.13.16
-    - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
+        python-version: 3.15.2
+    - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
       with:
-        version: 0.13.4
-        checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
+        version: 0.13.7
+        checksum: c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83
         enable-cache: 'false'
     - name: Install exact development graph
-      run: 'uv venv --python 3.13.16 .venv
+      run: 'uv venv --python 3.15.2 .venv
 
         uv pip install --python .venv/bin/python --require-hashes --build-constraints requirements-dev.txt
         --default-index https://pypi.org/simple -r requirements-dev.txt
@@ -308,16 +309,16 @@ jobs:
         persist-credentials: 'false'
     - name: Prepare bounded working directories
       run: mkdir -p .tool-cache/tmp .tool-cache/uv
-    - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+    - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0
       with:
-        python-version: 3.13.16
-    - uses: astral-sh/setup-uv@1c37ad07a6a961277cf70c0d37d6f313000f5884
+        python-version: 3.15.2
+    - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2
       with:
-        version: 0.13.4
-        checksum: 2b428396f12572d4429cf210ca234dd599a33b3af0958a4d5ed569d63e3f344f
+        version: 0.13.7
+        checksum: c5221ff41b7892bfc223543883600125f6a47fe845093e0f5bdff4f359196d83
         enable-cache: 'false'
     - name: Install exact development graph
-      run: 'uv venv --python 3.13.16 .venv
+      run: 'uv venv --python 3.15.2 .venv
 
         uv pip install --python .venv/bin/python --require-hashes --build-constraints requirements-dev.txt
         --default-index https://pypi.org/simple -r requirements-dev.txt

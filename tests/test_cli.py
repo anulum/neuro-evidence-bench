@@ -21,10 +21,11 @@ COMMAND = Path(__file__).resolve().parents[1] / "tools/check_repository_metadata
 
 
 @pytest.mark.parametrize("args", [["--unknown", "CONFIDENTIAL_PAYLOAD"], ["--root"]])
-def test_invalid_invocation_is_safe(args: list[str]) -> None:
+@pytest.mark.parametrize("command", [COMMAND, COMMAND.with_name("check_workflow_policy.py")])
+def test_invalid_invocation_is_safe(command: Path, args: list[str]) -> None:
     """Return parseable invalid-invocation JSON without rejected argument text."""
     result = subprocess.run(
-        [sys.executable, str(COMMAND), *args],
+        [sys.executable, str(command), *args],
         capture_output=True,
         text=True,
         check=False,

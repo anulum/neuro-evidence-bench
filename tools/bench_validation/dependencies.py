@@ -314,6 +314,26 @@ def verify_configuration(root: Path, direct: dict[str, str]) -> list[Finding]:
         or docs.get("site_dir") != ".tool-cache/site"
         or docs.get("exclude_docs") != "internal/\n"
         or docs.get("strict") != "true"
+        or docs.get("theme")
+        != {"name": "mkdocs", "custom_dir": "docs-overrides", "highlightjs": "false"}
+        or docs.get("plugins")
+        != [
+            "search",
+            {
+                "mkdocstrings": {
+                    "handlers": {
+                        "python": {
+                            "paths": ["tools"],
+                            "options": {
+                                "docstring_style": "numpy",
+                                "docstring_section_style": "list",
+                                "show_source": "false",
+                            },
+                        }
+                    }
+                }
+            },
+        ]
     ):
         findings.append(
             Finding(

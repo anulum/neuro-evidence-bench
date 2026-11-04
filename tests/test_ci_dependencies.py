@@ -20,7 +20,7 @@ from bench_validation.yaml_input import read_yaml
 
 def test_actual_ci_alignment_and_missing_inputs(workflow_repository: Path) -> None:
     """Accept current real workflows and refuse an absent declaration directory."""
-    assert verify_ci_dependencies(workflow_repository, {"uv": "0.13.4"}) == []
+    assert verify_ci_dependencies(workflow_repository, {"uv": "0.13.7"}) == []
     assert verify_ci_dependencies(workflow_repository / "missing", {})[0].exit_code == 3
 
 
@@ -41,7 +41,7 @@ def test_malformed_ci_inputs(workflow_repository: Path, value: object, code: str
     target = workflow_repository / ".github/workflows/ci.yml"
     target.write_text(json.dumps(value))
     with pytest.raises(Refusal) as caught:
-        verify_ci_dependencies(workflow_repository, {"uv": "0.13.4"})
+        verify_ci_dependencies(workflow_repository, {"uv": "0.13.7"})
     assert caught.value.finding.code == code
     assert caught.value.finding.exit_code == 4
 
@@ -68,5 +68,5 @@ def test_actual_ci_version_and_prerequisite_drift(workflow_repository: Path) -> 
             step["run"] = "make metadata"
     (workflow_repository / relative).write_text(json.dumps(document))
     assert {
-        item.code for item in verify_ci_dependencies(workflow_repository, {"uv": "0.13.4"})
+        item.code for item in verify_ci_dependencies(workflow_repository, {"uv": "0.13.7"})
     } == {"ci.python", "ci.uv", "ci.native"}

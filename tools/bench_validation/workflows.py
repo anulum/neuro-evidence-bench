@@ -17,7 +17,7 @@ from bench_validation.inputs import read_file, read_json
 from bench_validation.report import Finding, Refusal, Report
 from bench_validation.yaml_input import read_yaml
 
-POLICY_SHA256 = "6ff40f76ce7f3629c4956e93accb17947ad21141076359e2daf93dcb432de8e5"
+POLICY_SHA256 = "b766ffa26b80ba7f59db9b67167e71b14b4d5f6346148a1ca968b8d6678f6fbe"
 
 
 def _mapping(value: object) -> dict[str, object]:
@@ -259,15 +259,16 @@ def validate_workflows(root: Path) -> Report:
                 trigger = _mapping(workflow.get("on"))
                 if name == "ci.yml":
                     if (
-                        set(trigger) != {"push", "pull_request"}
+                        set(trigger) != {"push", "pull_request", "workflow_dispatch"}
                         or trigger.get("push") != {"branches": ["main"]}
                         or trigger.get("pull_request") not in ("", {})
+                        or trigger.get("workflow_dispatch") not in ("", {})
                     ):
                         report.findings.append(
                             Finding(
                                 "workflow.triggers",
                                 relative,
-                                "Coordinator must cover every main push and pull request without path filters.",
+                                "Coordinator requires main pushes, pull requests and input-free manual runs without path filters.",
                             )
                         )
                 elif trigger != {"workflow_call": ""}:

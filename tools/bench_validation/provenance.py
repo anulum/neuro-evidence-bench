@@ -131,7 +131,9 @@ def validate_provenance(root: Path) -> Report:
                 continue
             text = read_file(root, relative).decode("utf-8", errors="strict")
             if not validate_notice(
-                text, markdown=relative.endswith(".md"), sidecar=relative.endswith(".license")
+                text,
+                markdown=relative.endswith((".md", ".html")),
+                sidecar=relative.endswith(".license"),
             ):
                 report.findings.append(
                     Finding(

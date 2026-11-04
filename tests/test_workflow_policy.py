@@ -39,6 +39,18 @@ def test_complete_workflow_configuration_through_cli(workflow_repository: Path) 
     [
         ("ci.yml", ("permissions",), {"contents": "write"}, "workflow.permissions"),
         ("ci.yml", ("on", "push", "paths"), ["src/**"], "workflow.triggers"),
+        (
+            "ci.yml",
+            ("on",),
+            {"push": {"branches": ["main"]}, "pull_request": ""},
+            "workflow.triggers",
+        ),
+        (
+            "ci.yml",
+            ("on", "workflow_dispatch"),
+            {"inputs": {"command": {"required": "true"}}},
+            "workflow.triggers",
+        ),
         ("docs.yml", ("on",), {"pull_request_target": ""}, "workflow.triggers"),
         ("ci.yml", ("concurrency", "group"), "shared", "workflow.concurrency"),
         ("ci.yml", ("jobs", "required", "if"), "${{ success() }}", "workflow.aggregate"),

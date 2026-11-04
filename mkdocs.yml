@@ -12,8 +12,9 @@ docs_dir: docs
 site_dir: .tool-cache/site
 strict: true
 theme:
-  name: material
-  logo: assets/anulum_logo.png
+  name: mkdocs
+  custom_dir: docs-overrides
+  highlightjs: false
 copyright: Concepts © 1996–2026 and code © 2020–2026 Miroslav Šotek
 nav:
   - Overview: index.md
@@ -31,6 +32,7 @@ plugins:
           paths: [tools]
           options:
             docstring_style: numpy
+            docstring_section_style: list
             show_source: false
 markdown_extensions:
   - admonition
