@@ -15,7 +15,7 @@ theme:
   name: mkdocs
   custom_dir: docs-overrides
   highlightjs: false
-copyright: Concepts © 1996–2026 and code © 2020–2026 Miroslav Šotek
+copyright: Concepts © 1996–2026 and code © 2020–2026 Miroslav Šotek · AGPL-3.0-or-later, commercial licence available
 nav:
   - Overview: index.md
   - Validation tooling: validation-tooling.md
