@@ -17,7 +17,7 @@ from bench_validation.inputs import read_file, read_json
 from bench_validation.report import Finding, Refusal, Report
 
 # Reviewed independently of the descriptor. Policy updates require code review.
-SCHEMA_SHA256 = "1e0c2557b7a4d444252229e76bad681b66965599f4a5e44c3dff9cad2d435c27"
+SCHEMA_SHA256 = "8647ea9196f9726e43f4cf182c497b72ad3acd38da843a6675f66ad5ea80ae07"
 SCHEMA_PATH = "schemas/repository-domain.schema.json"
 METADATA_PATH = "repository-domain.json"
 

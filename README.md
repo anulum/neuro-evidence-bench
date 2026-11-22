@@ -12,6 +12,8 @@ NEURO-EVIDENCE-BENCH — repository governance and provenance
 
 NEURO-EVIDENCE-BENCH defines a boundary for auditable benchmark plans, evidence-backed results and independent reruns. The current implementation provides repository validation tooling. Benchmark execution, metric collection, result assembly and comparison remain planned; no benchmark runtime or measured capability is installed.
 
+NEURO-EVIDENCE-BENCH is part of the **SC Neuromorphic Computing Systems** group (SC-NEUROMORPHIC-COMPUTING-SYSTEMS). The [group and project map](https://github.com/anulum/sc-neurocore/blob/main/docs/ecosystem.md) shows the whole programme and where this repository sits in it.
+
 The local metadata explicitly records `local_scaffold`, `architecture_only`, empty capabilities, claims and qualified schemas. The planned identifiers `neuro_evidence_bench.plan.v1` and `neuro_evidence_bench.result.v1` are declarations. Neither format is registered or accepted by this tooling.
 
 ## Validate repository metadata

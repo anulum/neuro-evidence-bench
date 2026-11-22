@@ -12,6 +12,8 @@ NEURO-EVIDENCE-BENCH — repository governance and provenance
 
 This guide documents implemented local repository validators. Benchmark execution, metric assembly and independent rerun remain planned. No measured result or qualified scientific capability is declared.
 
+NEURO-EVIDENCE-BENCH is part of the **SC Neuromorphic Computing Systems** group (SC-NEUROMORPHIC-COMPUTING-SYSTEMS). The [group and project map](https://github.com/anulum/sc-neurocore/blob/main/docs/ecosystem.md) shows the whole programme and where this repository sits in it.
+
 The planned metric alignment acknowledges [NeuroBench](https://github.com/NeuroBench/neurobench). Its published definitions are reference targets; no NeuroBench code or dataset is incorporated and no current metric compatibility is certified.
 
 Read the [tooling contract](validation-tooling.md), [component architecture](ARCHITECTURE.md), [trust boundaries](THREAT_MODEL.md) and [repository boundary](adr/0001-repository-boundary.md).

@@ -2,11 +2,11 @@
   "capabilities": [],
   "claims": [],
   "evidence_maturity": "architecture_only",
-  "lifecycle": "local_scaffold",
+  "lifecycle": "public_repository",
   "qualified_owned_schema_ids": [],
   "repository_name": "NEURO-EVIDENCE-BENCH",
   "source_metadata": {
     "path": "repository-domain.json",
-    "sha256": "e0e661049b973fc781afc481f59d656d5bc246176e5de6d4a63f02a5a8ab8953"
+    "sha256": "6f78b351d2655265f9a074ba85d4170e8426d087923237b81ad992baa4cac655"
   }
 }
