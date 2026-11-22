@@ -5,7 +5,6 @@
 # ORCID: 0009-0009-3560-0851
 # Contact: www.anulum.li | protoscience@anulum.li
 # NEURO-EVIDENCE-BENCH — development dependency lock
-
 arrow==1.4.0 \
     --hash=sha256:749f0769958ebdc79c173ff0b0670d59051a535fa26e8eba02953dc19eb43205 \
     --hash=sha256:ed0cc050e98001b8779e84d461b0098c4ac597e88704a655582b21d116e526d7
@@ -18,7 +17,7 @@ bandit==1.9.4 \
 boolean-py==5.0 \
     --hash=sha256:60cbc4bad079753721d32649545505362c754e121570ada4658b852a3a318d95 \
     --hash=sha256:ef28a70bd43115208441b53a045d1549e2f0ec6e3d08a9d142cbc41c1938e8d9
-cachecontrol==0.14.4 \
+cachecontrol[filecache]==0.14.4 \
     --hash=sha256:b7ac014ff72ee199b5f8af1de29d60239954f223e948196fa3d84adaffc71d2b \
     --hash=sha256:e6220afafa4c22a47dd0badb319f84475d79108100d04e26e8542ef7d3ab05a1
 certifi==2026.10.23 \
@@ -250,7 +249,7 @@ charset-normalizer==3.5.2 \
 click==8.5.0 \
     --hash=sha256:255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360 \
     --hash=sha256:ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34
-coverage==7.17.1 \
+coverage[toml]==7.17.1 \
     --hash=sha256:006453b2515ea4c44a857e07b985429038b164080fa777cabea6d22d2e686325 \
     --hash=sha256:0411fe8b17b7f481cdfe9138bd5b266bb18de124114cfab0cf796b61383ef321 \
     --hash=sha256:042e093be797b929741fb71238da028f0f2d9d669a3a7ab3588967d77f860b51 \
@@ -373,7 +372,7 @@ coverage==7.17.1 \
 cyclonedx-bom==7.6.0 \
     --hash=sha256:4db70eb524e859317c645bbe927347e18bdd3cfa31906b1e482b4b936f8c36ef \
     --hash=sha256:ab8a8c4cf0d8704f75029f75826993047783b8fd416e7dc3431af54c03e8adab
-cyclonedx-python-lib==11.12.0 \
+cyclonedx-python-lib[validation]==11.12.0 \
     --hash=sha256:0e807521a921a5c3cb8ce1153f8a61d29eedfe76a46aac2796b7c6b573391a54 \
     --hash=sha256:16767c4039de90c04e9f03348f8f0ed4b8ff842eaa7eefcad3a95685f970dacf
 defusedxml==0.7.1 \
@@ -412,7 +411,7 @@ jinja2==3.1.6 \
 jsonpointer==3.8 \
     --hash=sha256:a627a255641390bfb4d51d4cfbb90648078ae855b45804ef7e19ea13a4cca355 \
     --hash=sha256:d69af85adaea202111bbc931067ead68dc16bca4592c74e1a1953152e2a330ab
-jsonschema==4.26.0 \
+jsonschema[format-nongpl]==4.26.0 \
     --hash=sha256:0c26707e2efad8aa1bfc5b7ce170f3fccc2e4918ff85989ba9ffa9facb2be326 \
     --hash=sha256:d489f15263b8d200f8387e64b4c3a75f06629559fb73deb8fdfb525f2dab50ce
 jsonschema-specifications==2025.9.1 \
@@ -915,9 +914,9 @@ mkdocs-get-deps==0.2.2 \
 mkdocstrings==1.0.8 \
     --hash=sha256:4b03ed2b863009f1153f0d04aacb22a85b92afc28a0636d85717c92eecca638c \
     --hash=sha256:b50fc326230906425c82ee9ec59b80e5db00892b2b593d4d0b841a0d4acf537b
-mkdocstrings-python==2.0.10 \
-    --hash=sha256:4a3aaeebb25ba5ae57a8f9e75432fe4571984889602f2b2f7d672faa760e9062 \
-    --hash=sha256:5e34ae56b2f20a57807ee479d603ddc5ec7cc6d2252c4c177754627ef2d3b833
+mkdocstrings-python==2.0.11 \
+    --hash=sha256:12d9b8bb1ccdb160a220a771a169300b788e8af5ad6456a0b8aeabbb103d42b2 \
+    --hash=sha256:86ba14ea584a838e144b40d131b0780452e8abee57d90db6c84c9a9ac114c527
 msgpack==1.2.4 \
     --hash=sha256:0221748c30ace75fde0dec8c470abe65fb5374cd4f37adb9db6aca7a3c362c0a \
     --hash=sha256:0626ea840cce866237c4da08439e9faa9cf79e6e4c62358978ee055961e8cff2 \
@@ -1070,9 +1069,6 @@ packaging==26.3 \
 pathspec==1.1.1 \
     --hash=sha256:17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a \
     --hash=sha256:a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189
-pip==26.3 \
-    --hash=sha256:6c36ae7da8695be67e3cd9f7d87919667ced53f57ce2ede75d89b5912ed2bc4c \
-    --hash=sha256:f3b60b20ffaadd4415ed7957212a38ac63fa4c5fa375bd0f4a797777940fad13
 pip-api==0.0.35 \
     --hash=sha256:14dea05d7b3b68f4c7582213e3ae8932bbba8e1f754bf06b95263d5fa6ab4363 \
     --hash=sha256:66990d0da25378555cbb538db79384bab92d4617c6350dfd7a2126ba2a3a9894
